@@ -11,6 +11,12 @@ namespace WhenToDig96.Pages
         public Calendar()
         {
             _jobService = new JobService();
+
+            _jobService.Add("Tom");
+            _jobService.Add("Dick");
+            _jobService.Add("Sally");
+
+            var jobs = _jobService.GetAll();
         }
     }
 }
