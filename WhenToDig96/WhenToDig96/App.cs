@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using WhenToDig96.Pages;
 using Xamarin.Forms;
 
 namespace WhenToDig96
@@ -12,19 +12,12 @@ namespace WhenToDig96
         public App()
         {
             // The root page of your application
-            MainPage = new ContentPage
-            {
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            XAlign = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
-                }
-            };
+            MainPage = GetMainPage();            
+        }
+
+        private static Page GetMainPage()
+        {
+            return new Calendar();
         }
 
         protected override void OnStart()

@@ -45,7 +45,9 @@
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\ISQLite.cs" />
     <Compile Include="Data\Repository.cs" />
+    <Compile Include="Pages\Calendar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\JobService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SQLite-net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
