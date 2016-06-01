@@ -42,7 +42,7 @@ namespace WhenToDig96.Droid.Data
 
         private string GetDatabasePath()
         {
-            var sqliteFilename = "DatabaseName.db3";
+            var sqliteFilename = "Wtd.db3";
             string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
             var path = Path.Combine(documentsPath, sqliteFilename);
             return path;
