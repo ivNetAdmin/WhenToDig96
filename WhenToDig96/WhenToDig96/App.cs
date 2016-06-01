@@ -15,6 +15,12 @@ namespace WhenToDig96
             MainPage = GetMainPage();            
         }
 
+        private void DropAllTables()
+        {
+            throw new NotImplementedException();
+        }
+
+      
         private static Page GetMainPage()
         {
             return new Calendar();

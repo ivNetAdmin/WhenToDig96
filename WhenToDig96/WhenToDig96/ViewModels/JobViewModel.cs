@@ -1,33 +1,41 @@
 ﻿
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Threading.Tasks;
+using WhenToDig96.Data.Entities;
+using WhenToDig96.Services.Interfaces;
+using Xamarin.Forms;
 
 namespace WhenToDig96.ViewModels
 {
-    public class JobViewModel : INotifyPropertyChanged
+    public class JobViewModel : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        private static IJobService JobService { get; } = DependencyService.Get<IJobService>();
 
-        public JobViewModel()
+        public JobViewModel(Page page)
         {
-
+            page.Appearing += async (sender, e) =>
+                 {
+                     await AddJob();
+                     await BindJobs();
+                 };
         }
 
-        private string _name;
-        public string Name
+        private IList<Job> _jobs;
+        public IList<Job> Jobs
         {
-            set
-            {
-                if(_name != value)
-                {
-                    _name = value;
-                }
+            get { return _jobs; }
+            private set { SetPropertyValue(ref _jobs, value); }
+        }
 
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
-            }
-            get
-            {
-                return _name;
-            }
+        private async Task AddJob()
+        {
+            await JobService.Add("Cakes");
+        }
+
+        private async Task BindJobs()
+        {
+            Jobs = await JobService.GetAll();
         }
     }
 }

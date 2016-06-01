@@ -1,22 +1,39 @@
 ﻿
 using WhenToDig96.Services;
+using WhenToDig96.ViewModels;
 using Xamarin.Forms;
 
 namespace WhenToDig96.Pages
 {
     public class Calendar : ContentPage
     {
-        JobService _jobService;
+        //JobService _jobService;
 
         public Calendar()
         {
-            _jobService = new JobService();
+            var jobvm = new JobViewModel(this);
 
-            _jobService.Add("Tom");
-            _jobService.Add("Dick");
-            _jobService.Add("Sally");
+            this.Content = new ListView
+            {
+                ItemsSource = jobvm.Jobs,
+                ItemTemplate = new DataTemplate(() =>
+                {
 
-            var jobs = _jobService.GetAll();
+                    var job = new Label
+                    {
+                       // Text = "Cakes"
+                    };
+                    job.SetBinding(Label.TextProperty, "Name");
+
+                    var viewCell = new ViewCell
+                    {
+                        View = job
+                    };
+
+                    return viewCell;
+                })
+
+            };
         }
     }
 }
