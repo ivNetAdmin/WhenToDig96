@@ -42,9 +42,10 @@
     <Compile Include="Data\Entities\Plant.cs" />
     <Compile Include="Data\Entities\Job.cs" />
     <Compile Include="Data\Entities\Variety.cs" />
-    <Compile Include="Data\IDataSource.cs" />
+    <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\ISQLite.cs" />
     <Compile Include="Data\JobRepository.cs" />
+    <Compile Include="Data\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
